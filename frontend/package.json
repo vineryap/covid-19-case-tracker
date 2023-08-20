@@ -1,0 +1,29 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "author": "Vin E. R. Yap",
+  "engines": {
+    "node": ">=16.10.0"
+  },
+  "engineStrict": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "cleanup": "nuxi cleanup"
+  },
+  "devDependencies": {
+    "@nuxt/test-utils": "^3.4.2",
+    "@types/node": "^18.15.13",
+    "@unocss/nuxt": "^0.51.6",
+    "nuxt": "^3.4.2",
+    "vitest": "^0.30.1"
+  },
+  "dependencies": {
+    "@julr/unocss-preset-forms": "^0.0.5",
+    "@unocss/reset": "^0.51.6",
+    "svgmap": "^2.10.1"
+  }
+}

@@ -1,0 +1,10 @@
+.git
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.docker/
+.vscode/
+.idea/
+*.md
+./scripts
