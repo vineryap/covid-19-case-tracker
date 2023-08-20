@@ -1,0 +1,45 @@
+version: "3.9"
+
+networks:
+  backend-net:
+    name: 'fastapi-net'
+
+services:
+  backend:
+    user: 'fastapi'
+    image: 'assignment-fastapi'
+    container_name: 'assignment-fastapi'
+    working_dir: '/home/app/assignment-fastapi'
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - '8000:8000'
+    command: 'uvicorn app.app:app --host assignment-fastapi --port 8000'
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://assignment-fastapi:8000/api/healthcheck"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - backend-net
+
+  frontend:
+    user: 'node'
+    image: 'assignment-nuxt3'
+    container_name: 'assignment-nuxt3'
+    working_dir: '/home/node/assignment-nuxt3'
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    environment:
+      NODE_ENV: 'production'
+      NUXT_BACKEND_ENDPOINT: 'http://assignment-fastapi:8000/api'
+    command: 'node .output/server/index.mjs'
+    networks:
+      - backend-net
+    depends_on:
+      backend:
+        condition: service_healthy
