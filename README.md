@@ -1,6 +1,18 @@
-# Project Setup Instructions
+# Covid-19 Case Tracker App
 
-## Running project via Docker (Recommended)
+A proof of concept app for monitoring covid-19 global case.
+
+## Tech stack
+
+- FastAPI
+- Nuxt (Hybrid rendering)
+- Cloudflare Workers (Currently disabled as the app is not deployed.)
+- Brevo (formerly Sendinblue) - as mail server
+- Data source: https://covid-19.dataflowkit.com/v1/world
+
+## Project Setup Instructions
+
+### Running project via Docker (Recommended)
 
 Helper scripts to build and run the project via docker is provided in the `scripts` directory. The scripts should be run at the root directory of this project.
 
@@ -26,7 +38,7 @@ The app can be accessed via `http://127.0.0.1:3000`
 
 Please note that the backend is not accessible from the host when running via docker. This behavior is set intentionally and can be changed via the docker-compose file.
 
-## Building Locally (More steps)
+### Building Locally (More steps)
 
 To build and run the projects locally, you will need to have the following tools installed on your machine:
 
@@ -34,7 +46,7 @@ To build and run the projects locally, you will need to have the following tools
 - Python
 - Docker (if needed)
 
-## Preparation
+### Preparation
 
 Once you have installed the required tools, follow the instructions below:
 
@@ -43,10 +55,10 @@ Once you have installed the required tools, follow the instructions below:
    1. Run `cd frontend` in one terminal window (Frontend terminal).
    2. And run `cd backend`  in the other terminal window (Backend terminal).
 
-### Frontend
+#### Frontend
 All commands must be executed in the frontend terminal window as indicated in the preparation section.
 
-#### Installing Dependencies
+##### Installing Dependencies
 
 Use the following command to install dependencies:
 
@@ -56,7 +68,7 @@ npm run install
 pnpm install
 ```
 
-#### Running the app in development mode
+##### Running the app in development mode
 
 Use the following command to run the app in development mode:
 
@@ -66,7 +78,7 @@ npm run dev
 pnpm dev
 ```
 
-#### Build for production
+##### Build for production
 
 Build the project using the following command:
 
@@ -86,7 +98,7 @@ pnpm preview
 node .output/server/index.mjs
 ```
 
-### Backend
+#### Backend
 
 All commands must be executed in the backend terminal window as indicated in the preparation section.
 
@@ -112,7 +124,7 @@ If `poerty` is installed on the system, you can install the dependencies via poe
 poetry install
 ```
 
-#### Run backend app
+##### Run backend app
 
 Run the following command to run the project:
 ```shell
